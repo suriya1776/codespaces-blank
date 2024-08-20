@@ -874,11 +874,27 @@ func (c *Command) ArgsLenAtDash() int {
 }
 
 func (c *Command) execute(a []string) (err error) {
+
+	fmt.Println("Use:", c.Use)
+	fmt.Println("Aliases:", c.Aliases)
+	fmt.Println("SuggestFor:", c.SuggestFor)
+	fmt.Println("Short:", c.Short)
+	fmt.Println("GroupID:", c.GroupID)
+	fmt.Println("Long:", c.Long)
+	fmt.Println("Example:", c.Example)
+	fmt.Println("ValidArgs:", c.ValidArgs)
+	fmt.Println("ArgAliases:", c.ArgAliases)
+	fmt.Println("BashCompletionFunction:", c.BashCompletionFunction)
+	fmt.Println("Deprecated:", c.Deprecated)
+	fmt.Println("Annotations:", c.Annotations)
+	fmt.Println("Version:", c.Version)
 	if c == nil {
+		fmt.Println("c is null")
 		return fmt.Errorf("called Execute() on a nil Command")
 	}
 
 	if len(c.Deprecated) > 0 {
+		fmt.Println("Deperated is not null")
 		c.Printf("Command %q is deprecated, %s\n", c.Name(), c.Deprecated)
 	}
 
